@@ -10,12 +10,11 @@ class AnimalController extends Controller
 {
     public function show(int $id)
     {
-        $animal = Animal::find($id);
+        $animal = Animal::findOrFail($id);
 
-        if (!$animal) {
-            abort(404);
-        }
-        return view('pages/animal-details', ["animal" => $animal]);
+        return view('pages.animal-details', [
+            'animal' => $animal
+        ]);
     }
 
     public function create()
@@ -31,29 +30,23 @@ class AnimalController extends Controller
         return redirect()->route('home');
     }
 
-    public function update($id)
+    public function update(int $id)
     {
-        $animal = Animal::find($id);
+        $animal = Animal::findOrFail($id);
 
-        if ($animal) {
-            $animal->update([
-                "name" => $animal->name . " modifié",
-            ]);
-        }
+        $animal->update([
+            'name' => $animal->name . ' modifié',
+        ]);
 
         return redirect()->route('home');
     }
 
-    public function delete($id)
+    public function delete(int $id)
     {
-
-        $animal = Animal::find($id);
-
-        if (!$animal) {
-            abort(404);
-        }
+        $animal = Animal::findOrFail($id);
 
         $animal->delete();
+
         return redirect()->route('home');
     }
 }
