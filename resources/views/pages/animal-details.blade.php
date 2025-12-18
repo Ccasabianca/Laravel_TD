@@ -1,6 +1,7 @@
 <!-- resources/views/pages/animal-details.blade.php -->
-@extends('layouts.animal-details')
+@extends('layouts.app')
 @section('title', "Animal " . $animal->id)
+@section('css', 'resources/css/animal-details.css')
 @section('content')
 <div class="animal-container">
     <h1 class="title">{{ $animal->name }}</h1>

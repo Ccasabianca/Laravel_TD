@@ -1,14 +1,18 @@
 <!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
     <link rel="icon" href="{{ asset('favicon.png') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
 
+    @php $css = trim($__env->yieldContent('css')); @endphp
+    @if($css)
+        @vite([$css, 'resources/js/app.js'])
+    @else
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
+</head>
 <body>
     @include('partials.header')
     <main>
@@ -16,5 +20,4 @@
     </main>
     @include('partials.footer')
 </body>
-
 </html>
