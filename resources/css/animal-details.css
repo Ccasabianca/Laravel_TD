@@ -48,7 +48,7 @@ nav {
 }
 
 nav a img {
-    height: 100%;
+    height: 60px;
     vertical-align: middle;
 }
 
@@ -72,55 +72,31 @@ footer {
 
 /* Animal Component */
 
-.animal-container a {
-    display: contents;
-    text-decoration: none;
-    color: inherit;
-}
-
 .animal-container {
     width: 80vw;
     margin: 2.5rem auto;
-    margin-bottom: 6rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
 }
 
 .animal {
-    background-color: #fff;
     color: #000;
-    border-radius: 1rem;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.animal h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
 }
 
 .animal img {
-    border-radius: 0.25rem;
     height: 200px;
-    width: 100%;
-    object-fit: cover;
+    width: 200px;
 }
 
-.animal p {
-    margin-bottom: 0.25rem;
-}
-
-.button-row {
+.animal-infos {
     width: 100%;
+    margin-left: 1.5rem;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 
-.button-row a {
-    font-size: 1.2rem;
-    display: inline-block;
-    color: #52c9ff;
+.button-row {
+    display: none;
 }
