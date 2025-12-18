@@ -1,11 +1,15 @@
-<!-- resources/views/pages/animal-details.blade.php -->
 @extends('layouts.app')
+
 @section('title', "Animal " . $animal->id)
-@section('css', 'resources/css/animal-details.css')
+
+@push('styles')
+@vite('resources/css/animal-details.css')
+@endpush
+
 @section('content')
-<div class="animal-container">
+<div class="animal-details-container">
     <h1 class="title">{{ $animal->name }}</h1>
-    <div class="animal">
+    <div class="animal-details">
         <img src="{{ asset('images/animaux/' . $animal->photo) }}" alt="{{ $animal->name }}">
         <div class="animal-infos">
             <p>Espèce : {{ $animal->species }}</p>
